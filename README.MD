@@ -1,0 +1,1 @@
+Phoca Download Finder Plugin is Joomla! CMS extension. Plugin which adds finder information of downloadable files in search results.
