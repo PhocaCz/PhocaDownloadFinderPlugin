@@ -1,0 +1,16 @@
+{
+	"author": "Jan Pavelka (www.phoca.cz)",
+	"authorUrl": "https://www.phoca.cz",
+	"copyright": "Jan Pavelka",
+	"license": "GNU/GPL",
+	"projectName": "PhocaDownloadFinderPlugin",
+	"extensionName": "Phoca Download Finder Plugin",
+	"projectInitials" : "PD",				  
+	"description": "Phoca Download Finder plugin is a Joomla! plugin which allows you to search for documents of Phoca Download powered by Joomla! Smart Search (Finder) feature.",
+	"projectUrl": "https://www.phoca.cz/phoca-download-finder-plugin",
+	"projectDocumentationUrl": "https://www.phoca.cz/documentation/category/73-phoca-download-finder-plugin",
+	"projectDemo" : {
+		"Joomla! 2.5 Demo": "https://www.phoca.cz/joomlademo/"
+	},
+	"projectColor": "#339933"
+}

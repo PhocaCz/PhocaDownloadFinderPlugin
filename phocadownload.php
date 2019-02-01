@@ -244,4 +244,23 @@ class PlgFinderPhocadownload extends FinderIndexerAdapter
 
 		return $query;
 	}
+	
+	protected function getStateQuery()
+	{
+		$query = $this->db->getQuery(true);
+
+		// Item ID
+		$query->select('a.id');
+
+		// Item and category published state
+		//$query->select('a.' . $this->state_field . ' AS state, c.published AS cat_state');
+		$query->select('a.published AS state, c.published AS cat_state');
+		// Item and category access levels
+		//$query->select(' a.access, c.access AS cat_access')
+		$query->select(' c.access AS cat_access')
+			->from($this->table . ' AS a')
+			->join('LEFT', '#__phocadownload_categories AS c ON c.id = a.catid');
+
+		return $query;
+	}
 }

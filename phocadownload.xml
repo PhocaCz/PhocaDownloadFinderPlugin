@@ -1,22 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension version="3" type="plugin" group="finder" method="upgrade">
+<extension type="plugin" group="finder" method="upgrade" version="3">
 	<name>plg_finder_phocadownload</name>
-	<author>Jan Pavelka</author>
-	<creationDate>25/08/2013</creationDate>
+	<author>Jan Pavelka (www.phoca.cz)</author>
+	<creationDate>01/02/2019</creationDate>
+	<authorEmail></authorEmail>
+	<authorUrl>https://www.phoca.cz</authorUrl>
 	<copyright>Jan Pavelka</copyright>
 	<license>GNU/GPL</license>
-	<authorEmail></authorEmail>
-	<authorUrl>www.phoca.cz</authorUrl>
-	<version>3.0.1</version>
+	<version>3.1.7</version>
 	<description>PLG_FINDER_PHOCADOWNLOAD_DESCRIPTION</description>
+	<projectName>PhocaDownloadFinderPlugin</projectName>
+
 	<files>
-		<file plugin="phocadownload">phocadownload.php</file>
-    	<filename>index.html</filename>
+		<filename plugin="phocadownload">index.html</filename>
+		<filename plugin="phocadownload">phocadownload.php</filename>
 	</files>
+
 	<languages>
 		<language tag="en-GB">language/en-GB/en-GB.plg_finder_phocadownload.ini</language>
 		<language tag="en-GB">language/en-GB/en-GB.plg_finder_phocadownload.sys.ini</language>
 	</languages>
+
+	<administration>
+		<languages>
+			<language tag="en-GB">language/en-GB/en-GB.plg_finder_phocadownload.ini</language>
+			<language tag="en-GB">language/en-GB/en-GB.plg_finder_phocadownload.sys.ini</language>
+		</languages>
+	</administration>
 	
 	<config>
 	<fields name="params">
@@ -29,4 +39,8 @@
 		</fieldset>
 	</fields>
 	</config>
+
+	<updateservers>
+		<server type="extension" name="PLG_FINDER_PHOCADOWNLOAD" priority="1"><![CDATA[https://raw.githubusercontent.com/PhocaCz/PhocaDownloadFinderPlugin/master/manifest.xml]]></server>
+	</updateservers>
 </extension>
