@@ -2,7 +2,7 @@
 <extension type="plugin" group="finder" method="upgrade" version="3">
 	<name>plg_finder_phocadownload</name>
 	<author>Jan Pavelka (www.phoca.cz)</author>
-	<creationDate>01/02/2019</creationDate>
+	<creationDate>02/02/2019</creationDate>
 	<authorEmail></authorEmail>
 	<authorUrl>https://www.phoca.cz</authorUrl>
 	<copyright>Jan Pavelka</copyright>
@@ -13,6 +13,7 @@
 
 	<files>
 		<filename plugin="phocadownload">index.html</filename>
+		<filename plugin="phocadownload">manifest.xml</filename>
 		<filename plugin="phocadownload">phocadownload.php</filename>
 	</files>
 

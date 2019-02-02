@@ -16,6 +16,8 @@ Phoca Download Finder plugin is a Joomla! plugin which allows you to search for 
 
 [Phoca Download Finder Plugin](https://www.phoca.cz/phoca-download-finder-plugin)
 
+[Phoca Download Info Page](https://www.phoca.cz/project/phocadownload-joomla-download)
+
 
 
 ## Documentation
