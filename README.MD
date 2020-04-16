@@ -26,6 +26,8 @@ Phoca Download Finder plugin is a Joomla! plugin which allows you to search for 
 
 
 
+
+
 ## Support
 
 [Phoca Forum](https://www.phoca.cz/forum)
@@ -52,7 +54,7 @@ Phoca Download Finder plugin is a Joomla! plugin which allows you to search for 
 
 ## Version
 
-3.1.7
+3.2.0
 
 
 
