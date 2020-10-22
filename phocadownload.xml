@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="plugin" group="finder" method="upgrade" version="3">
+<extension type="plugin" group="finder" method="upgrade" version="3.9">
 	<name>plg_finder_phocadownload</name>
 	<author>Jan Pavelka (www.phoca.cz)</author>
-	<creationDate>16/04/2020</creationDate>
+	<creationDate>22/10/2020</creationDate>
 	<authorEmail></authorEmail>
 	<authorUrl>https://www.phoca.cz</authorUrl>
 	<copyright>Jan Pavelka</copyright>
 	<license>GNU/GPL</license>
-	<version>3.2.0</version>
+	<version>3.2.1</version>
 	<description>PLG_FINDER_PHOCADOWNLOAD_DESCRIPTION</description>
 	<projectName>PhocaDownloadFinderPlugin</projectName>
 
