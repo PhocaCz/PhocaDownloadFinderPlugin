@@ -16,7 +16,27 @@
 		<maintainer><![CDATA[ Phoca.cz ]]></maintainer>
 		<maintainerurl>https://www.phoca.cz/</maintainerurl>
 		<section>Updates</section>
-		<targetplatform name="joomla" version="3.9"/>
+		<targetplatform name="joomla" version="3.([89]|10)"/>
+		<client>site</client>
+	</update>
+	<update>
+		<name><![CDATA[ Phoca Download Finder Plugin ]]></name>
+		<description><![CDATA[ Phoca Download Finder plugin is a Joomla! plugin which allows you to search for documents of Phoca Download powered by Joomla! Smart Search (Finder) feature. ]]></description>
+		<element>phocadownload</element>
+		<folder>finder</folder>
+		<type>plugin</type>
+		<version>4.0.2</version>
+		<infourl title="Phoca Download Finder Plugin 4.0.2">https://www.phoca.cz/</infourl>
+		<downloads>
+			<downloadurl type="full" format="zip">https://github.com/PhocaCz/PhocaDownloadFinderPlugin/releases/download/4.0.2/plg_finder_phocadownload_v4.0.2.zip</downloadurl>
+		</downloads>
+		<tags>
+			<tag>stable</tag>
+		</tags>
+		<maintainer><![CDATA[ Phoca.cz ]]></maintainer>
+		<maintainerurl>https://www.phoca.cz/</maintainerurl>
+		<section>Updates</section>
+		<targetplatform name="joomla" version="4.[012]"/>
 		<client>site</client>
 	</update>
 </updates>

@@ -6,6 +6,10 @@
  * @copyright Copyright (C) Jan Pavelka www.phoca.cz
  * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
  */
+
+use Joomla\CMS\Component\ComponentHelper;
+use Joomla\Database\DatabaseQuery;
+
 defined('JPATH_BASE') or die;
 require_once JPATH_ADMINISTRATOR . '/components/com_finder/helpers/indexer/adapter.php';
 
@@ -18,13 +22,13 @@ class PlgFinderPhocadownload extends FinderIndexerAdapter
 	protected $table 			= '#__phocadownload';
 	protected $autoloadLanguage = true;
 
-	
+
 	/*public function __construct(&$subject, $config)
 	{
 		parent::__construct($subject, $config);
 		$this->loadLanguage();
 	}*/
-	
+
 	public function onFinderCategoryChangeState($extension, $pks, $value)
 	{
 		if ($extension == 'com_phocadownload')
@@ -105,7 +109,7 @@ class PlgFinderPhocadownload extends FinderIndexerAdapter
 
 		return true;
 	}
-	
+
 	public function onFinderChangeState($context, $pks, $value)
 	{
 		// We only want to handle web links here
@@ -125,11 +129,11 @@ class PlgFinderPhocadownload extends FinderIndexerAdapter
 	protected function index(FinderIndexerResult $item, $format = 'html')
 	{
 		// Check if the extension is enabled
-		if (JComponentHelper::isEnabled($this->extension) == false)
+		if (ComponentHelper::isEnabled($this->extension) == false)
 		{
 			return;
 		}
-		
+
 		$item->setLanguage();
 
 		// Initialize the item parameters.
@@ -140,7 +144,7 @@ class PlgFinderPhocadownload extends FinderIndexerAdapter
 		$registry = new JRegistry;
 		$registry->loadString($item->metadata);
 		$item->metadata = $registry;
-		
+
 		// Build the necessary route and path information.
 		$item->url = $this->getURL($item->id, $this->extension, $this->layout);
 		$p['search_link']			= $this->params->get( 'search_link', 0 );
@@ -157,8 +161,8 @@ class PlgFinderPhocadownload extends FinderIndexerAdapter
 				$item->route = PhocaDownloadRoute::getCategoryRoute($item->catid, $item->categoryalias);
 			break;
 		}
-		
-		$item->path = FinderIndexerHelper::getContentPath($item->route);
+
+		//$item->path = FinderIndexerHelper::getContentPath($item->route);
 		$item->url = $this->getURL($item->id, $this->extension, $this->layout);
 
 
@@ -200,10 +204,10 @@ class PlgFinderPhocadownload extends FinderIndexerAdapter
 	}
 
 	protected function getListQuery($query = null)
-	{	
+	{
 		$db = JFactory::getDbo();
 		// Check if we can use the supplied SQL query.
-		$query = $query instanceof JDatabaseQuery ? $query : $db->getQuery(true)			
+		$query = $query instanceof DatabaseQuery ? $query : $db->getQuery(true)
 			->select('a.id, a.catid, a.title, a.alias, "" AS link, a.description AS summary')
 			->select('a.metakey, a.metadesc, a.metadata, a.language, a.access, a.ordering')
 			->select('"" AS created_by_alias, "" AS modified, "" AS modified_by')
@@ -244,7 +248,7 @@ class PlgFinderPhocadownload extends FinderIndexerAdapter
 
 		return $query;
 	}
-	
+
 	protected function getStateQuery()
 	{
 		$query = $this->db->getQuery(true);

@@ -2,7 +2,7 @@
 
 
 
-![Phoca Download Finder Plugin](https://github.com/PhocaCz/PhocaDownloadFinderPlugin/blob/master/phocadownload.png)
+![Phoca Download Finder Plugin](https://github.com/PhocaCz/PhocaDownloadFinderPlugin/blob/master/phocadownload.png?raw=true)
 
 # Phoca Download Finder Plugin
 
@@ -52,9 +52,13 @@ Phoca Download Finder plugin is a Joomla! plugin which allows you to search for 
 
 
 
-## Version
+## Version (Joomla! 3.x)
 
 3.2.1
+
+## Version (Joomla! 4.x)
+
+4.0.2
 
 
 
