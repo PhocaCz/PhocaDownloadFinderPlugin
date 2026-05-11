@@ -60,6 +60,10 @@ Phoca Download Finder plugin is a Joomla! plugin which allows you to search for 
 
 4.0.2
 
+## Version (Joomla! 5.x)
+
+5.0.10
+
 
 
 ## License
@@ -69,3 +73,17 @@ GNU/GPL
 
 
 This project is open source project - feel free to contribute! Thank you.
+
+
+
+## Social Media
+
+- [Phoca on Facebook](https://www.facebook.com/Phoca.cz)
+
+- [Phoca on X (Twitter)](https://twitter.com/PhocaCz)
+
+- [Phoca on YouTube](https://www.youtube.com/user/phocavideos)
+
+- [Phoca on GitHub](https://github.com/PhocaCz)
+
+- [Phoca on Reddit](https://www.reddit.com/user/PhocaCz)

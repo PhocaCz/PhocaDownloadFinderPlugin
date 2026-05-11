@@ -8,16 +8,22 @@
  */
 
 use Joomla\CMS\Component\ComponentHelper;
+use Joomla\CMS\Factory;
+use Joomla\Component\Finder\Administrator\Indexer\Adapter;
+use Joomla\Component\Finder\Administrator\Indexer\Indexer;
 use Joomla\Database\DatabaseQuery;
+use Joomla\Registry\Registry;
+use Joomla\Component\Finder\Administrator\Indexer\Helper;
 
-defined('JPATH_BASE') or die;
-require_once JPATH_ADMINISTRATOR . '/components/com_finder/helpers/indexer/adapter.php';
 
-class PlgFinderPhocadownload extends FinderIndexerAdapter
+defined('_JEXEC') or die;
+//require_once JPATH_ADMINISTRATOR . '/components/com_finder/helpers/indexer/adapter.php';
+
+class PlgFinderPhocadownload extends Adapter
 {
 	protected $context 			= 'Phocadownload';
 	protected $extension 		= 'com_phocadownload';
-	protected $layout 			= 'category';
+	protected $layout 			= 'file';
 	protected $type_title 		= 'Phoca Download';
 	protected $table 			= '#__phocadownload';
 	protected $autoloadLanguage = true;
@@ -39,7 +45,8 @@ class PlgFinderPhocadownload extends FinderIndexerAdapter
 
 	public function onFinderAfterDelete($context, $table)
 	{
-		if ($context == 'com_phocadownload.phocadownloadfile')
+
+		if ($context == 'com_phocacart.phocacartitem')
 		{
 			$id = $table->id;
 		}
@@ -58,7 +65,7 @@ class PlgFinderPhocadownload extends FinderIndexerAdapter
 	public function onFinderAfterSave($context, $row, $isNew)
 	{
 		// We only want to handle web links here. We need to handle front end and back end editing.
-		if ($context == 'com_phocadownload.phocadownloadfile' || $context == 'com_phocadownload.file' )
+		if ($context == 'com_phocadownload.phocadownloadfile' || $context == 'com_phocadownload.file')
 		{
 			// Check if the access levels are different
 			if (!$isNew && $this->old_access != $row->access)
@@ -125,8 +132,7 @@ class PlgFinderPhocadownload extends FinderIndexerAdapter
 
 	}
 
-
-	protected function index(FinderIndexerResult $item, $format = 'html')
+	protected function index(Joomla\Component\Finder\Administrator\Indexer\Result $item, $format = 'html')
 	{
 		// Check if the extension is enabled
 		if (ComponentHelper::isEnabled($this->extension) == false)
@@ -137,13 +143,17 @@ class PlgFinderPhocadownload extends FinderIndexerAdapter
 		$item->setLanguage();
 
 		// Initialize the item parameters.
-		$registry = new JRegistry;
-		$registry->loadString($item->params);
-		$item->params = $registry;
+        if (!empty($item->params)) {
+            $registry = new Registry;
+            $registry->loadString($item->params);
+            $item->params = $registry;
+        }
 
-		$registry = new JRegistry;
-		$registry->loadString($item->metadata);
-		$item->metadata = $registry;
+        if (!empty($item->metadata)) {
+            $registry = new Registry;
+            $registry->loadString($item->metadata);
+            $item->metadata = $registry;
+        }
 
 		// Build the necessary route and path information.
 		$item->url = $this->getURL($item->id, $this->extension, $this->layout);
@@ -152,18 +162,23 @@ class PlgFinderPhocadownload extends FinderIndexerAdapter
 		{
 			case 1:
 				$item->route = PhocaDownloadRoute::getFileRoute($item->id, $item->catid, $item->alias, $item->categoryalias);
+                //$item->url = $item->route;
 				break;
 			case 2:
 				$item->route = PhocaDownloadRoute::getFileRoute($item->id, $item->catid, $item->alias, $item->categoryalias, 0, 'download');
+                //$item->url = $item->route;
 				break;
 			case 0:
 			default:
 				$item->route = PhocaDownloadRoute::getCategoryRoute($item->catid, $item->categoryalias);
+                //$item->url = $item->route . '&fileid='.$item->id;// We can have all files redirected to category view, so add unique item
 			break;
 		}
 
-		//$item->path = FinderIndexerHelper::getContentPath($item->route);
-		$item->url = $this->getURL($item->id, $this->extension, $this->layout);
+		//$item->path = Helper::getContentPath($item->route);
+		//$item->url = $this->getURL($item->id, $this->extension, $this->layout);
+
+        //$item->url = $item->route;
 
 
 		/*
@@ -171,27 +186,31 @@ class PlgFinderPhocadownload extends FinderIndexerAdapter
 		 * configuration parameters.
 		 */
 		// Add the meta-author.
-		$item->metaauthor = $item->metadata->get('author');
-
+        if (!empty($item->metadata)) {
+            $item->metaauthor = $item->metadata->get('author');
+        }
 		// Handle the link to the meta-data.
-		$item->addInstruction(FinderIndexer::META_CONTEXT, 'link');
-		$item->addInstruction(FinderIndexer::META_CONTEXT, 'metakey');
-		$item->addInstruction(FinderIndexer::META_CONTEXT, 'metadesc');
-		$item->addInstruction(FinderIndexer::META_CONTEXT, 'metaauthor');
-		$item->addInstruction(FinderIndexer::META_CONTEXT, 'author');
-		$item->addInstruction(FinderIndexer::META_CONTEXT, 'created_by_alias');
+		$item->addInstruction(Indexer::META_CONTEXT, 'link');
+		$item->addInstruction(Indexer::META_CONTEXT, 'metakey');
+		$item->addInstruction(Indexer::META_CONTEXT, 'metadesc');
+		$item->addInstruction(Indexer::META_CONTEXT, 'metaauthor');
+		$item->addInstruction(Indexer::META_CONTEXT, 'author');
+		$item->addInstruction(Indexer::META_CONTEXT, 'created_by_alias');
 
 		// Add the type taxonomy data.
 		$item->addTaxonomy('Type', 'Phoca Download');
 
 		// Add the category taxonomy data.
-		$item->addTaxonomy('Category', $item->category, $item->cat_state, $item->cat_access);
+
+        if (isset($item->category) && $item->category != '') {
+            $item->addTaxonomy('Category', $item->category, $item->cat_state, $item->cat_access);
+        }
 
 		// Add the language taxonomy data.
 		$item->addTaxonomy('Language', $item->language);
 
 		// Get content extras.
-		FinderIndexerHelper::getContentExtras($item);
+		Helper::getContentExtras($item);
 
 		// Index the item.
 		$this->indexer->index($item);
@@ -205,7 +224,7 @@ class PlgFinderPhocadownload extends FinderIndexerAdapter
 
 	protected function getListQuery($query = null)
 	{
-		$db = JFactory::getDbo();
+		$db = Factory::getDbo();
 		// Check if we can use the supplied SQL query.
 		$query = $query instanceof DatabaseQuery ? $query : $db->getQuery(true)
 			->select('a.id, a.catid, a.title, a.alias, "" AS link, a.description AS summary')
@@ -219,7 +238,8 @@ class PlgFinderPhocadownload extends FinderIndexerAdapter
 		$case_when_item_alias = ' CASE WHEN ';
 		$case_when_item_alias .= $query->charLength('a.alias', '!=', '0');
 		$case_when_item_alias .= ' THEN ';
-		$a_id = $query->castAsChar('a.id');
+		//$a_id = $query->castAsChar('a.id');
+		$a_id = $query->castAs('CHAR', 'a.id');
 		$case_when_item_alias .= $query->concatenate(array($a_id, 'a.alias'), ':');
 		$case_when_item_alias .= ' ELSE ';
 		$case_when_item_alias .= $a_id.' END as slug';
@@ -228,7 +248,8 @@ class PlgFinderPhocadownload extends FinderIndexerAdapter
 		$case_when_category_alias = ' CASE WHEN ';
 		$case_when_category_alias .= $query->charLength('c.alias', '!=', '0');
 		$case_when_category_alias .= ' THEN ';
-		$c_id = $query->castAsChar('c.id');
+		//$c_id = $query->castAsChar('c.id');
+		$c_id = $query->castAs('CHAR', 'c.id');
 		$case_when_category_alias .= $query->concatenate(array($c_id, 'c.alias'), ':');
 		$case_when_category_alias .= ' ELSE ';
 		$case_when_category_alias .= $c_id.' END as catslug';

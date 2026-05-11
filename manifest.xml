@@ -1,3 +1,4 @@
+<?xml version="1.0" ?>
 <updates>
 	<update>
 		<name><![CDATA[ Phoca Download Finder Plugin ]]></name>
@@ -36,7 +37,49 @@
 		<maintainer><![CDATA[ Phoca.cz ]]></maintainer>
 		<maintainerurl>https://www.phoca.cz/</maintainerurl>
 		<section>Updates</section>
-		<targetplatform name="joomla" version="4.[012]"/>
+		<targetplatform name="joomla" version="4\.*"/>
+		<client>site</client>
+	</update>
+	<update>
+		<name><![CDATA[ Phoca Download Finder Plugin ]]></name>
+		<description><![CDATA[ Phoca Download Finder plugin is a Joomla! plugin which allows you to search for documents of Phoca Download powered by Joomla! Smart Search (Finder) feature. ]]></description>
+		<element>phocadownload</element>
+		<folder>finder</folder>
+		<type>plugin</type>
+		<version>5.0.10</version>
+		<infourl title="Phoca Download Finder Plugin 5.0.10">https://www.phoca.cz/</infourl>
+		<downloads>
+			<downloadurl type="full" format="zip">https://github.com/PhocaCz/PhocaDownloadFinderPlugin/releases/download/5.0.10/plg_finder_phocadownload_v5.0.10.zip</downloadurl>
+		</downloads>
+		<sha512>e9e431765030ce858416767c12b2aa23b6b55d58ea074ae5dcf33c8354ac7ca6bdfa3b3177d8faa95e33f9a621b763fb2a07f63dce6564d3552f3eb1a69605c3</sha512>
+		<tags>
+			<tag>stable</tag>
+		</tags>
+		<maintainer><![CDATA[ Phoca.cz ]]></maintainer>
+		<maintainerurl>https://www.phoca.cz/</maintainerurl>
+		<section>Updates</section>
+		<targetplatform name="joomla" version="5\.*"/>
+		<client>site</client>
+	</update>
+	<update>
+		<name><![CDATA[ Phoca Download Finder Plugin ]]></name>
+		<description><![CDATA[ Phoca Download Finder plugin is a Joomla! plugin which allows you to search for documents of Phoca Download powered by Joomla! Smart Search (Finder) feature. ]]></description>
+		<element>phocadownload</element>
+		<folder>finder</folder>
+		<type>plugin</type>
+		<version>6.1.0</version>
+		<infourl title="Phoca Download Finder Plugin 6.1.0">https://www.phoca.cz/</infourl>
+		<downloads>
+			<downloadurl type="full" format="zip">https://github.com/PhocaCz/PhocaDownloadFinderPlugin/releases/download/6.1.0/plg_finder_phocadownload_v6.1.0.zip</downloadurl>
+		</downloads>
+		<sha512>b6de71eeb02be1d7817dd05db1e282d28b12b154c94345711c6b11678ebe76e4cdc2e86f2029f2c11a39508137f294e2770ce798827c31b6d3ff7b0f21f07899</sha512>
+		<tags>
+			<tag>stable</tag>
+		</tags>
+		<maintainer><![CDATA[ Phoca.cz ]]></maintainer>
+		<maintainerurl>https://www.phoca.cz/</maintainerurl>
+		<section>Updates</section>
+		<targetplatform name="joomla" version="(5|6)\.*"/>
 		<client>site</client>
 	</update>
 </updates>
