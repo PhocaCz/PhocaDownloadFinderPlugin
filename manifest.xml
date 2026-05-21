@@ -67,12 +67,12 @@
 		<element>phocadownload</element>
 		<folder>finder</folder>
 		<type>plugin</type>
-		<version>6.1.0</version>
-		<infourl title="Phoca Download Finder Plugin 6.1.0">https://www.phoca.cz/</infourl>
+		<version>6.1.1</version>
+		<infourl title="Phoca Download Finder Plugin 6.1.1">https://www.phoca.cz/</infourl>
 		<downloads>
-			<downloadurl type="full" format="zip">https://github.com/PhocaCz/PhocaDownloadFinderPlugin/releases/download/6.1.0/plg_finder_phocadownload_v6.1.0.zip</downloadurl>
+			<downloadurl type="full" format="zip">https://github.com/PhocaCz/PhocaDownloadFinderPlugin/releases/download/6.1.1/plg_finder_phocadownload_v6.1.1.zip</downloadurl>
 		</downloads>
-		<sha512>b6de71eeb02be1d7817dd05db1e282d28b12b154c94345711c6b11678ebe76e4cdc2e86f2029f2c11a39508137f294e2770ce798827c31b6d3ff7b0f21f07899</sha512>
+		<sha512>ed410a1d505783358fbd2d27f018a50661126986a2f0355a0af2af92c9ddcaa132508a9f8be68234cab08f9dcf778fd4b4dc67ab1ce7514f73c64f8626721b8b</sha512>
 		<tags>
 			<tag>stable</tag>
 		</tags>

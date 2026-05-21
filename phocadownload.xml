@@ -2,12 +2,12 @@
 <extension type="plugin" group="finder" method="upgrade" version="6.0">
 	<name>plg_finder_phocadownload</name>
 	<author>Jan Pavelka (www.phoca.cz)</author>
-	<creationDate>11/05/2026</creationDate>
+	<creationDate>21/05/2026</creationDate>
 	<authorEmail></authorEmail>
 	<authorUrl>https://www.phoca.cz</authorUrl>
 	<copyright>Jan Pavelka</copyright>
 	<license>GNU/GPL</license>
-	<version>6.1.0</version>
+	<version>6.1.1</version>
 	<description>PLG_FINDER_PHOCADOWNLOAD_DESCRIPTION</description>
 	<projectName>PhocaDownloadFinderPlugin</projectName>
 

@@ -46,7 +46,7 @@ class PlgFinderPhocadownload extends Adapter
 	public function onFinderAfterDelete($context, $table)
 	{
 
-		if ($context == 'com_phocacart.phocacartitem')
+		if ($context == 'com_phocadownload.phocacartitem')
 		{
 			$id = $table->id;
 		}
